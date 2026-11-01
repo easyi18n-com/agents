@@ -1,0 +1,29 @@
+{
+  "name": "@easyi18n.com/cli",
+  "version": "1.0.0",
+  "description": "The easyi18n CLI and MCP server as a prebuilt binary: no Dart SDK needed.",
+  "keywords": ["i18n", "localization", "translation", "mcp", "cli"],
+  "homepage": "https://docs.easyi18n.com/developers/agents",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liontude/easyi18n-agents.git",
+    "directory": "npm"
+  },
+  "license": "MIT",
+  "bin": {
+    "easyi18n": "bin/easyi18n.js"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "files": [
+    "bin/",
+    "install.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,5 @@
+# The plugin runs these under sh and cmd.exe on every platform: a CRLF in a
+# shell script breaks it, and cmd.exe misreads labels in an LF batch file.
+*.sh text eol=lf
+claude-code/bin/easyi18n-mcp text eol=lf
+*.cmd text eol=crlf

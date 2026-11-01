@@ -1,0 +1,22 @@
+{
+  "name": "easyi18n",
+  "version": "1.0.0",
+  "description": "The easyi18n MCP server, with skills to set up a Flutter, Xcode, web or Android project and to translate and publish it. Every spend, publish and rollback waits for a human approval in the easyi18n dashboard.",
+  "author": {
+    "name": "easyi18n",
+    "url": "https://easyi18n.com"
+  },
+  "homepage": "https://docs.easyi18n.com/developers/agents",
+  "repository": "https://github.com/liontude/easyi18n-agents",
+  "license": "MIT",
+  "keywords": ["i18n", "localization", "translation", "flutter", "xcode", "mcp"],
+  "userConfig": {
+    "token": {
+      "type": "string",
+      "title": "easyi18n agent key",
+      "description": "An Agent key (eik_...) from Project > Settings > API keys > New API key, Used by: AI agent. Leave it empty until you have one: setup runs without it.",
+      "sensitive": true,
+      "default": ""
+    }
+  }
+}

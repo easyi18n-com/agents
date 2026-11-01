@@ -1,0 +1,15 @@
+{
+  "name": "easyi18n",
+  "description": "The easyi18n plugin for Claude Code.",
+  "owner": {
+    "name": "easyi18n",
+    "url": "https://easyi18n.com"
+  },
+  "plugins": [
+    {
+      "name": "easyi18n",
+      "source": "./claude-code",
+      "description": "Set up easyi18n in a Flutter, Xcode, web or Android project, then translate and publish with a human approval for every spend."
+    }
+  ]
+}

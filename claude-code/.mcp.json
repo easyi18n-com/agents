@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "easyi18n": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/easyi18n-mcp",
+      "env": {
+        "EASYI18N_TOKEN": "${user_config.token}"
+      }
+    }
+  }
+}
