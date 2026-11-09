@@ -2,9 +2,10 @@
 
 The [easyi18n](https://easyi18n.com) MCP server and the integrations that
 install it. An agent connected to it can set up easyi18n in a Flutter, Xcode,
-web or Android project, translate the strings and publish them. Every spend,
-publish and rollback it asks for waits until a human approves it in the
-easyi18n dashboard.
+Angular, web or Android project, translate the strings and publish them.
+With the developer's `easyi18n login` it spends and publishes as them; with
+an agent key, every spend, publish and rollback it asks for waits until a
+human approves it in the easyi18n dashboard.
 
 | Directory | What it is |
 |---|---|
@@ -24,10 +25,12 @@ to, verified against its release's `SHA256SUMS`. An `easyi18n` or
 `dart pub global run easyi18n_cli:easyi18n` of that same version is used
 instead when one is installed.
 
-The plugin reads your agent key from its configuration: `/plugin`, then
+The plugin uses the login `easyi18n login` stores: run it once in a
+terminal. For an agent that must not spend without your approval, give the
+plugin an agent key instead, from its configuration: `/plugin`, then
 easyi18n, then Configure. Create the key in the dashboard under Project >
 Settings > API keys > New API key, with Used by set to AI agent. The `setup`
-skill runs before the key exists and tells you when to add it. Check the connection with `/mcp`.
+skill runs before either exists and tells you what to do. Check the connection with `/mcp`.
 
 A team that works across several easyi18n projects can give each repository
 its own key in place of the plugin: a `.mcp.json` at the project root that
@@ -38,7 +41,7 @@ takes the key from the environment Claude Code was started in.
   "mcpServers": {
     "easyi18n": {
       "command": "npx",
-      "args": ["-y", "@easyi18n.com/cli@1.0.0", "mcp"],
+      "args": ["-y", "@easyi18n.com/cli@1.2.0", "mcp"],
       "env": { "EASYI18N_TOKEN": "${EASYI18N_TOKEN}" }
     }
   }

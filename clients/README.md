@@ -8,22 +8,25 @@ regenerate: CI fails on a hand edit.
 The first snippet of each client runs the npm package
 `@easyi18n.com/cli`, which needs Node and no Dart SDK. The second
 runs the Dart package after `dart pub global activate easyi18n_cli`.
-`eik_YOUR_AGENT_KEY` stands for an AI agent key, created in the
-dashboard: every spend, publish and rollback it makes waits for a
-human approval.
+By default the server sends the login `easyi18n login` stored
+on the machine where it runs, and needs no key.
+`easyi18n mcp config --client <client> --agent-key` prints where
+to supply an AI agent key created in the dashboard. Replace
+`eik_YOUR_AGENT_KEY` wherever it appears. The generated command uses
+`--require-agent-key` and refuses to start without a key.
 
 ## Claude Code (`claude-code`)
 
 Run it in a terminal in the project. It registers the server in local scope, which stays out of the repo.
 
 ```sh
-claude mcp add --env EASYI18N_TOKEN=eik_YOUR_AGENT_KEY --transport stdio easyi18n -- npx -y @easyi18n.com/cli@1.0.0 mcp
+claude mcp add --transport stdio easyi18n -- npx -y @easyi18n.com/cli@1.2.0 mcp
 ```
 
 With the Dart SDK:
 
 ```sh
-claude mcp add --env EASYI18N_TOKEN=eik_YOUR_AGENT_KEY --transport stdio easyi18n -- dart pub global run easyi18n_cli:easyi18n mcp
+claude mcp add --transport stdio easyi18n -- dart pub global run easyi18n_cli:easyi18n mcp
 ```
 
 ## Claude Desktop (`claude-desktop`)
@@ -37,12 +40,9 @@ Merge it into claude_desktop_config.json (Settings, Developer, Edit Config) and 
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.0.0",
+        "@easyi18n.com/cli@1.2.0",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }
@@ -61,10 +61,7 @@ With the Dart SDK:
         "run",
         "easyi18n_cli:easyi18n",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }
@@ -72,7 +69,7 @@ With the Dart SDK:
 
 ## Cursor (`cursor`)
 
-Merge it into .cursor/mcp.json in the project. Cursor reads EASYI18N_TOKEN from the environment it was started in.
+Merge it into .cursor/mcp.json in the project.
 
 ```json
 {
@@ -81,11 +78,10 @@ Merge it into .cursor/mcp.json in the project. Cursor reads EASYI18N_TOKEN from 
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.0.0",
+        "@easyi18n.com/cli@1.2.0",
         "mcp"
       ],
       "env": {
-        "EASYI18N_TOKEN": "${env:EASYI18N_TOKEN}",
         "EASYI18N_PROJECT_DIR": "${workspaceFolder}"
       }
     }
@@ -108,7 +104,6 @@ With the Dart SDK:
         "mcp"
       ],
       "env": {
-        "EASYI18N_TOKEN": "${env:EASYI18N_TOKEN}",
         "EASYI18N_PROJECT_DIR": "${workspaceFolder}"
       }
     }
@@ -118,29 +113,20 @@ With the Dart SDK:
 
 ## VS Code (`vscode`)
 
-Merge it into .vscode/mcp.json in the project. VS Code asks for the key once and stores it.
+Merge it into .vscode/mcp.json in the project.
 
 ```json
 {
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "easyi18n-token",
-      "description": "easyi18n AI agent key (eik_)",
-      "password": true
-    }
-  ],
   "servers": {
     "easyi18n": {
       "type": "stdio",
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.0.0",
+        "@easyi18n.com/cli@1.2.0",
         "mcp"
       ],
       "env": {
-        "EASYI18N_TOKEN": "${input:easyi18n-token}",
         "EASYI18N_PROJECT_DIR": "${workspaceFolder}"
       }
     }
@@ -152,14 +138,6 @@ With the Dart SDK:
 
 ```json
 {
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "easyi18n-token",
-      "description": "easyi18n AI agent key (eik_)",
-      "password": true
-    }
-  ],
   "servers": {
     "easyi18n": {
       "type": "stdio",
@@ -172,7 +150,6 @@ With the Dart SDK:
         "mcp"
       ],
       "env": {
-        "EASYI18N_TOKEN": "${input:easyi18n-token}",
         "EASYI18N_PROJECT_DIR": "${workspaceFolder}"
       }
     }
@@ -182,13 +159,12 @@ With the Dart SDK:
 
 ## Codex CLI (`codex`)
 
-Append it to ~/.codex/config.toml. Codex forwards EASYI18N_TOKEN from the shell it runs in.
+Append it to ~/.codex/config.toml.
 
 ```toml
 [mcp_servers.easyi18n]
 command = "npx"
-args = ["-y", "@easyi18n.com/cli@1.0.0", "mcp"]
-env_vars = ["EASYI18N_TOKEN"]
+args = ["-y", "@easyi18n.com/cli@1.2.0", "mcp"]
 startup_timeout_sec = 60
 required = true
 omit_tools_from = ["deferred"]
@@ -200,7 +176,6 @@ With the Dart SDK:
 [mcp_servers.easyi18n]
 command = "dart"
 args = ["pub", "global", "run", "easyi18n_cli:easyi18n", "mcp"]
-env_vars = ["EASYI18N_TOKEN"]
 startup_timeout_sec = 60
 required = true
 omit_tools_from = ["deferred"]
@@ -208,7 +183,7 @@ omit_tools_from = ["deferred"]
 
 ## Gemini CLI (`gemini`)
 
-Merge it into .gemini/settings.json in the project. Gemini CLI reads EASYI18N_TOKEN from the shell it runs in.
+Merge it into .gemini/settings.json in the project.
 
 ```json
 {
@@ -217,12 +192,9 @@ Merge it into .gemini/settings.json in the project. Gemini CLI reads EASYI18N_TO
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.0.0",
+        "@easyi18n.com/cli@1.2.0",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "$EASYI18N_TOKEN"
-      }
+      ]
     }
   }
 }
@@ -241,10 +213,7 @@ With the Dart SDK:
         "run",
         "easyi18n_cli:easyi18n",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "$EASYI18N_TOKEN"
-      }
+      ]
     }
   }
 }
@@ -261,12 +230,9 @@ Merge it into Windsurf's mcp_config.json.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.0.0",
+        "@easyi18n.com/cli@1.2.0",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }
@@ -285,10 +251,7 @@ With the Dart SDK:
         "run",
         "easyi18n_cli:easyi18n",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }
@@ -305,12 +268,9 @@ Merge it into Zed's user settings.json.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.0.0",
+        "@easyi18n.com/cli@1.2.0",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }
@@ -329,10 +289,7 @@ With the Dart SDK:
         "run",
         "easyi18n_cli:easyi18n",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }
@@ -349,12 +306,9 @@ Merge it into the client's MCP config: most read this mcpServers shape.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.0.0",
+        "@easyi18n.com/cli@1.2.0",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }
@@ -373,10 +327,7 @@ With the Dart SDK:
         "run",
         "easyi18n_cli:easyi18n",
         "mcp"
-      ],
-      "env": {
-        "EASYI18N_TOKEN": "eik_YOUR_AGENT_KEY"
-      }
+      ]
     }
   }
 }

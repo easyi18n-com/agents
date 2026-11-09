@@ -1,7 +1,7 @@
 {
   "name": "easyi18n",
-  "version": "1.0.0",
-  "description": "The easyi18n MCP server, with skills to set up a Flutter, Xcode, web or Android project and to translate and publish it. Every spend, publish and rollback waits for a human approval in the easyi18n dashboard.",
+  "version": "1.2.0",
+  "description": "The easyi18n MCP server, with skills to set up a Flutter, Xcode, Angular, web or Android project and to translate and publish it. With your easyi18n login, Claude spends and publishes as you; with an agent key, every spend, publish and rollback waits for a human approval in the easyi18n dashboard.",
   "author": {
     "name": "easyi18n",
     "url": "https://easyi18n.com"
@@ -9,12 +9,12 @@
   "homepage": "https://docs.easyi18n.com/developers/agents",
   "repository": "https://github.com/liontude/easyi18n-agents",
   "license": "MIT",
-  "keywords": ["i18n", "localization", "translation", "flutter", "xcode", "mcp"],
+  "keywords": ["i18n", "localization", "translation", "flutter", "xcode", "angular", "web", "android", "mcp"],
   "userConfig": {
     "token": {
       "type": "string",
       "title": "easyi18n agent key",
-      "description": "An Agent key (eik_...) from Project > Settings > API keys > New API key, Used by: AI agent. Leave it empty until you have one: setup runs without it.",
+      "description": "Optional. Leave it empty to use your easyi18n login. An Agent key (eik_...) from Project > Settings > API keys > New API key, Used by: AI agent, makes every spend and publish wait for a human approval.",
       "sensitive": true,
       "default": ""
     }

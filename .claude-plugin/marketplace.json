@@ -9,7 +9,7 @@
     {
       "name": "easyi18n",
       "source": "./claude-code",
-      "description": "Set up easyi18n in a Flutter, Xcode, web or Android project, then translate and publish with a human approval for every spend."
+      "description": "Set up easyi18n in a Flutter, Xcode, Angular, web or Android project, then translate and publish, with a human approval for every spend when Claude uses an agent key."
     }
   ]
 }
