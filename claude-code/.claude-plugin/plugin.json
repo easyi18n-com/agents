@@ -1,6 +1,6 @@
 {
   "name": "easyi18n",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The easyi18n MCP server, with skills to set up a Flutter, Xcode, Angular, web or Android project and to translate and publish it. With your easyi18n login, Claude spends and publishes as you; with an agent key, every spend, publish and rollback waits for a human approval in the easyi18n dashboard.",
   "author": {
     "name": "easyi18n",

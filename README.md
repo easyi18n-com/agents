@@ -45,7 +45,7 @@ takes the key from the environment Claude Code was started in.
   "mcpServers": {
     "easyi18n": {
       "command": "npx",
-      "args": ["-y", "@easyi18n.com/cli@1.2.0", "mcp"],
+      "args": ["-y", "@easyi18n.com/cli@1.2.1", "mcp"],
       "env": { "EASYI18N_TOKEN": "${EASYI18N_TOKEN}" }
     }
   }
