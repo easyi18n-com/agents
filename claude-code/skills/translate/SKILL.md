@@ -1,5 +1,5 @@
 ---
-name: easyi18n-translate
+name: translate
 description: "Translate and publish with easyi18n: preview the credit spend, get the human approval in the dashboard, wait for the fill, publish and write the result back. Use when the user asks to translate strings, fill missing translations, publish or roll back translations, or add a language with easyi18n."
 ---
 

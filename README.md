@@ -9,7 +9,7 @@ human approves it in the easyi18n dashboard.
 
 | Directory | What it is |
 |---|---|
-| `claude-code/` | The Claude Code plugin: MCP server, `setup` and `translate` skills, `/easyi18n-doctor` |
+| `claude-code/` | The Claude Code plugin: MCP server, `setup` and `translate` skills, `/easyi18n:doctor` |
 | `clients/` | The MCP config snippet for every other client (Cursor, VS Code, Codex, Gemini CLI, and more) |
 | `npm/` | `@easyi18n.com/cli`, the CLI as a prebuilt binary, for clients that launch the server with `npx` |
 
@@ -17,13 +17,15 @@ human approves it in the easyi18n dashboard.
 
 ```
 /plugin marketplace add liontude/easyi18n-agents
-/plugin install easyi18n@easyi18n
+/plugin install easyi18n
 ```
 
 The first session after the install downloads the CLI the plugin is pinned
 to, verified against its release's `SHA256SUMS`. An `easyi18n` or
 `dart pub global run easyi18n_cli:easyi18n` of that same version is used
-instead when one is installed.
+instead when one is installed. If you installed the plugin while its
+marketplace was named `easyi18n`, see
+[Installed before the rename](claude-code/README.md#installed-before-the-rename).
 
 The plugin uses the login `easyi18n login` stores: run it once in a
 terminal. For an agent that must not spend without your approval, give the

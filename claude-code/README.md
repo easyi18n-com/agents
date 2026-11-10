@@ -12,17 +12,17 @@ your project.
 
 ## What you can ask
 
-- "Add easyi18n to this project." The `easyi18n-setup` skill detects the
+- "Add easyi18n to this project." The `setup` skill detects the
   stack, writes the configuration, checks it with `doctor` and shows what
   would be translated. It spends nothing and runs without a login or a key.
 - "Translate the app into Spanish and German, then publish." The
-  `easyi18n-translate` skill shows the credit estimate, waits for the
+  `translate` skill shows the credit estimate, waits for the
   translation, publishes and writes the translated files into the repository.
   With an agent key it gives you an approval link for the spend and asks for a
   second approval to publish.
 - "Roll back the last publish." Claude restores the previous published version
   as a new one, after an approval when it uses an agent key.
-- `/easyi18n:easyi18n-doctor` runs the `doctor` checks and fixes the failing
+- `/easyi18n:doctor` runs the `doctor` checks and fixes the failing
   ones until none fail.
 
 ## Supported projects
@@ -45,7 +45,7 @@ Add this repository's marketplace and install the plugin:
 
 ```text
 /plugin marketplace add liontude/easyi18n-agents
-/plugin install easyi18n@easyi18n
+/plugin install easyi18n
 ```
 
 Then run `easyi18n login` in a terminal and approve the code it shows in your
@@ -65,6 +65,27 @@ plugin an agent key instead:
 The easyi18n API enforces those limits on the key itself: an agent key cannot
 spend credits, publish or roll back without an operation that a person
 approved, whichever client uses it.
+
+## Installed before the rename
+
+Until November 2026 the marketplace was named `easyi18n`, and the command,
+the skills and the server carried the plugin's name twice. An install made
+then keeps those names until the plugin's next version, and keeps the old
+marketplace name after that. Adding the marketplace again changes nothing
+while the old one is registered. To move to the current names, remove the old
+install first:
+
+```text
+/plugin uninstall easyi18n@easyi18n
+/plugin marketplace remove easyi18n
+/plugin marketplace add liontude/easyi18n-agents
+/plugin install easyi18n
+```
+
+Then open `/plugin`, select easyi18n and **Configure** if you use an agent
+key. The server's tools are now named `mcp__plugin_easyi18n_cli__<tool>`. A
+permission rule written with `mcp__plugin_easyi18n_easyi18n__` no longer
+matches: rewrite it with the new prefix.
 
 ## What the plugin runs, downloads and sends
 

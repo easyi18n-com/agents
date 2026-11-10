@@ -1,5 +1,5 @@
 ---
-name: easyi18n-setup
+name: setup
 description: "Set up easyi18n in this repository: detect the stack (Flutter, Xcode, Angular, web or Android), wire up the SDK and config, convert user-facing strings and show what would be translated. Use when the user wants to add easyi18n, internationalize or localize an app, or connect a project to easyi18n."
 ---
 
