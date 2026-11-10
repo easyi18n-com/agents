@@ -1,8 +1,7 @@
 @echo off
 rem Windows twin of easyi18n-mcp: the candidates of scripts/ensure-cli.sh in the
 rem same order, each only at the version in cli-version. With an empty cache it
-rem runs ensure-cli.sh itself: Claude Code starts this server before the
-rem SessionStart hook, and a failed start blocks it for 15 minutes (#1419).
+rem runs ensure-cli.sh: a failed start blocks the server for 15 minutes (#1419).
 rem SHELL is the Git Bash Claude Code resolved; a bare `bash` can be WSL.
 setlocal
 for /f "usebackq delims=" %%p in ("%~dp0..\cli-version") do set "PIN=%%p"
@@ -20,7 +19,7 @@ if exist "%SHELL%" goto install
 echo easyi18n plugin: easyi18n %PIN% is not installed, and installing it needs Git for Windows. Install Git for Windows, or run: npm install -g @easyi18n.com/cli@%PIN% 1>&2
 exit /b 1
 :install
-"%SHELL%" "%~dp0..\scripts\ensure-cli.sh" exec mcp %*
+"%SHELL%" "%~dp0..\scripts\ensure-cli.sh" mcp %*
 exit /b %errorlevel%
 :path
 easyi18n mcp %*

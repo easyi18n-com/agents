@@ -1,5 +1,4 @@
-# The plugin runs these under sh and cmd.exe on every platform: a CRLF in a
-# shell script breaks it, and cmd.exe misreads labels in an LF batch file.
-*.sh text eol=lf
-claude-code/bin/easyi18n-mcp text eol=lf
-*.cmd text eol=crlf
+# No rule here may convert a file: Anthropic's plugin directory refuses to
+# validate a repository whose attributes rewrite contents. Each file is stored
+# as its interpreter needs it, the .cmd with CRLF and the shell files with LF.
+* -text

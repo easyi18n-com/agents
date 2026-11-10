@@ -68,9 +68,9 @@ approved, whichever client uses it.
 
 ## What the plugin runs, downloads and sends
 
-**Runs.** At session start and on `claude --init`, a hook runs
-`scripts/ensure-cli.sh`. The MCP server, `bin/easyi18n-mcp`, starts
-`easyi18n mcp` through the same script.
+**Runs.** When Claude Code starts the plugin's MCP server, `bin/easyi18n-mcp`
+runs `scripts/ensure-cli.sh`, which finds or downloads the CLI and starts
+`easyi18n mcp`. The plugin has no hooks.
 
 **Downloads.** The plugin uses the easyi18n CLI version written in
 `cli-version`. If an `easyi18n` on your `PATH`, or `dart pub global run

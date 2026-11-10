@@ -1,8 +1,7 @@
 #!/bin/sh
-# Finds or installs the easyi18n CLI this plugin is pinned to (../cli-version).
-#
-#   ensure-cli.sh            SessionStart/Setup hook: silent when nothing to do
-#   ensure-cli.sh exec ARGS  what bin/easyi18n-mcp runs: `easyi18n ARGS`
+# Finds or installs the easyi18n CLI this plugin is pinned to (../cli-version)
+# and runs it: `ensure-cli.sh ARGS` is `easyi18n ARGS`. bin/easyi18n-mcp and
+# its .cmd twin are the callers.
 #
 # Candidates, in order: `easyi18n` on PATH, `dart pub global run`, the binary
 # cached in $CLAUDE_PLUGIN_DATA. One counts only if its --version is exactly
@@ -22,12 +21,6 @@ case "$(uname -s)" in
   *) bin="$data/cli/$pin/easyi18n" ;;
 esac
 
-mode=check
-if [ "${1:-}" = exec ]; then
-  mode=exec
-  shift
-fi
-
 die() {
   echo "easyi18n plugin: $*" >&2
   exit 1
@@ -38,16 +31,11 @@ reports_pin() {
   [ "$(printf %s "$out" | tr -d '\r')" = "easyi18n $pin" ]
 }
 
-use() {
-  [ "$mode" = exec ] || exit 0
-  exec "$@"
-}
-
 if command -v easyi18n >/dev/null 2>&1 && reports_pin easyi18n; then
-  use easyi18n "$@"
+  exec easyi18n "$@"
 fi
 if command -v dart >/dev/null 2>&1 && reports_pin dart pub global run easyi18n_cli:easyi18n; then
-  use dart pub global run easyi18n_cli:easyi18n "$@"
+  exec dart pub global run easyi18n_cli:easyi18n "$@"
 fi
 
 if ! reports_pin "$bin"; then
@@ -69,4 +57,4 @@ if ! reports_pin "$bin"; then
     [ "$old" = "$data/cli/$pin" ] || rm -rf "$old"
   done
 fi
-use "$bin" "$@"
+exec "$bin" "$@"
