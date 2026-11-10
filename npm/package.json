@@ -1,6 +1,7 @@
 {
   "name": "@easyi18n.com/cli",
   "version": "1.2.0",
+  "mcpName": "com.easyi18n/cli",
   "description": "The easyi18n CLI and MCP server as a prebuilt binary: no Dart SDK needed.",
   "keywords": ["i18n", "localization", "translation", "mcp", "cli"],
   "homepage": "https://docs.easyi18n.com/developers/agents",

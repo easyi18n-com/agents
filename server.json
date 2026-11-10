@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.easyi18n/cli",
+  "title": "easyi18n",
+  "description": "Set up easyi18n in a Flutter, Xcode, Angular, web or Android project, then translate and publish.",
+  "repository": {
+    "url": "https://github.com/liontude/easyi18n-agents",
+    "source": "github",
+    "subfolder": "npm"
+  },
+  "websiteUrl": "https://docs.easyi18n.com/developers/agents",
+  "version": "1.2.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@easyi18n.com/cli",
+      "version": "1.2.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ]
+    }
+  ]
+}

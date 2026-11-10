@@ -12,6 +12,8 @@ human approves it in the easyi18n dashboard.
 | `claude-code/` | The Claude Code plugin: MCP server, `setup` and `translate` skills, `/easyi18n:doctor` |
 | `clients/` | The MCP config snippet for every other client (Cursor, VS Code, Codex, Gemini CLI, and more) |
 | `npm/` | `@easyi18n.com/cli`, the CLI as a prebuilt binary, for clients that launch the server with `npx` |
+| `gemini-extension.json` | The Gemini CLI extension: the MCP server, launched with `npx` |
+| `server.json` | The server's entry in the [MCP Registry](https://registry.modelcontextprotocol.io), `com.easyi18n/cli` |
 
 ## Claude Code
 
@@ -50,6 +52,16 @@ takes the key from the environment Claude Code was started in.
 }
 ```
 
+## Gemini CLI
+
+```
+gemini extensions install https://github.com/liontude/easyi18n-agents
+```
+
+The extension starts the server with `npx`, so it needs Node.js, and uses
+the login `easyi18n login` stores. For an agent key, use the Gemini CLI
+snippet in [`clients/README.md`](clients/README.md) instead.
+
 ## Other clients
 
 [`clients/README.md`](clients/README.md) has the snippet for each client,
@@ -58,6 +70,6 @@ the same text `easyi18n mcp config --client <client>` prints.
 ## Source
 
 This repository is a one-way mirror of `integrations/agents/` in the easyi18n
-monorepo. The skills are generated from the MCP server's prompts and the
-client snippets from the CLI, so a change made here is overwritten by the
-next sync. Report issues at https://github.com/liontude/easyi18n-agents/issues.
+monorepo. The skills are generated from the MCP server's prompts, and the
+client snippets, `gemini-extension.json` and `server.json` from the CLI, so
+a change made here is overwritten by the next sync. Report issues at https://github.com/liontude/easyi18n-agents/issues.
