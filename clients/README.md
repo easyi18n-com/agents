@@ -20,7 +20,7 @@ to supply an AI agent key created in the dashboard. Replace
 Run it in a terminal in the project. It registers the server in local scope, which stays out of the repo.
 
 ```sh
-claude mcp add --transport stdio easyi18n -- npx -y @easyi18n.com/cli@1.2.1 mcp
+claude mcp add --transport stdio easyi18n -- npx -y @easyi18n.com/cli@1.2.2 mcp
 ```
 
 With the Dart SDK:
@@ -40,7 +40,7 @@ Merge it into claude_desktop_config.json (Settings, Developer, Edit Config) and 
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ]
     }
@@ -78,7 +78,7 @@ Merge it into .cursor/mcp.json in the project.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ],
       "env": {
@@ -123,7 +123,7 @@ Merge it into .vscode/mcp.json in the project.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ],
       "env": {
@@ -164,7 +164,7 @@ Append it to ~/.codex/config.toml.
 ```toml
 [mcp_servers.easyi18n]
 command = "npx"
-args = ["-y", "@easyi18n.com/cli@1.2.1", "mcp"]
+args = ["-y", "@easyi18n.com/cli@1.2.2", "mcp"]
 startup_timeout_sec = 60
 required = true
 omit_tools_from = ["deferred"]
@@ -192,7 +192,7 @@ Merge it into .gemini/settings.json in the project.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ]
     }
@@ -230,7 +230,7 @@ Merge it into Windsurf's mcp_config.json.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ]
     }
@@ -268,7 +268,7 @@ Merge it into Zed's user settings.json.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ]
     }
@@ -306,7 +306,7 @@ Merge it into the client's MCP config: most read this mcpServers shape.
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ]
     }

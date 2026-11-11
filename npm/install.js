@@ -39,7 +39,7 @@ async function download(url) {
 
 async function install() {
   const asset = assetFor(process.platform, process.arch);
-  const releases = process.env.EASYI18N_RELEASES_URL || 'https://github.com/liontude/easyi18n-dart/releases';
+  const releases = process.env.EASYI18N_RELEASES_URL || 'https://github.com/easyi18n-com/dart/releases';
   const base = `${releases}/download/cli-v${version}`;
   const binary = await download(`${base}/${asset}`);
   const sums = (await download(`${base}/SHA256SUMS`)).toString('utf8');

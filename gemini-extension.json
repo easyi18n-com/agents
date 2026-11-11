@@ -1,13 +1,13 @@
 {
   "name": "easyi18n",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Set up easyi18n in a Flutter, Xcode, Angular, web or Android project, then translate and publish.",
   "mcpServers": {
     "cli": {
       "command": "npx",
       "args": [
         "-y",
-        "@easyi18n.com/cli@1.2.1",
+        "@easyi18n.com/cli@1.2.2",
         "mcp"
       ]
     }

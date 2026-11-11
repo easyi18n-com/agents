@@ -39,7 +39,7 @@ if command -v dart >/dev/null 2>&1 && reports_pin dart pub global run easyi18n_c
 fi
 
 if ! reports_pin "$bin"; then
-  releases="${EASYI18N_RELEASES_URL:-https://github.com/liontude/easyi18n-dart/releases}"
+  releases="${EASYI18N_RELEASES_URL:-https://github.com/easyi18n-com/dart/releases}"
   url="$releases/download/cli-v$pin/install.sh"
   tmp="$(mktemp -d "${TMPDIR:-/tmp}/easyi18n-plugin.XXXXXX")"
   if command -v curl >/dev/null 2>&1; then

@@ -44,7 +44,7 @@ the dashboard first.
 Add this repository's marketplace and install the plugin:
 
 ```text
-/plugin marketplace add liontude/easyi18n-agents
+/plugin marketplace add easyi18n-com/agents
 /plugin install easyi18n
 ```
 
@@ -66,27 +66,6 @@ The easyi18n API enforces those limits on the key itself: an agent key cannot
 spend credits, publish or roll back without an operation that a person
 approved, whichever client uses it.
 
-## Installed before the rename
-
-Until November 2026 the marketplace was named `easyi18n`, and the command,
-the skills and the server carried the plugin's name twice. An install made
-then keeps those names until the plugin's next version, and keeps the old
-marketplace name after that. Adding the marketplace again changes nothing
-while the old one is registered. To move to the current names, remove the old
-install first:
-
-```text
-/plugin uninstall easyi18n@easyi18n
-/plugin marketplace remove easyi18n
-/plugin marketplace add liontude/easyi18n-agents
-/plugin install easyi18n
-```
-
-Then open `/plugin`, select easyi18n and **Configure** if you use an agent
-key. The server's tools are now named `mcp__plugin_easyi18n_cli__<tool>`. A
-permission rule written with `mcp__plugin_easyi18n_easyi18n__` no longer
-matches: rewrite it with the new prefix.
-
 ## What the plugin runs, downloads and sends
 
 **Runs.** When Claude Code starts the plugin's MCP server, `bin/easyi18n-mcp`
@@ -98,12 +77,12 @@ runs `scripts/ensure-cli.sh`, which finds or downloads the CLI and starts
 easyi18n_cli:easyi18n`, reports exactly that version, the plugin uses it and
 downloads nothing. Otherwise it downloads that version's `install.sh` and
 binary from the
-[liontude/easyi18n-dart releases](https://github.com/liontude/easyi18n-dart/releases),
+[easyi18n-com/dart releases](https://github.com/easyi18n-com/dart/releases),
 checks the binary against the release's `SHA256SUMS`, and keeps it in the
 plugin's data folder. `EASYI18N_RELEASES_URL` can override the download source.
 It deletes cached copies of other versions. The CLI's
 source is in
-[liontude/easyi18n-dart](https://github.com/liontude/easyi18n-dart/tree/main/packages/easyi18n_cli)
+[easyi18n-com/dart](https://github.com/easyi18n-com/dart/tree/main/packages/easyi18n_cli)
 and on [pub.dev](https://pub.dev/packages/easyi18n_cli).
 
 **Sends.** The MCP server sends requests to `https://api.easyi18n.com` with
@@ -139,6 +118,6 @@ in the dashboard. Each write is a tool call that Claude Code shows you.
   [terms](https://easyi18n.com/terms/)
 - [Documentation](https://docs.easyi18n.com/developers/agents/claude-code-plugin)
 - Support: info@easyi18n.com, or an issue at
-  [liontude/easyi18n-agents](https://github.com/liontude/easyi18n-agents/issues)
+  [easyi18n-com/agents](https://github.com/easyi18n-com/agents/issues)
 
 The plugin is MIT licensed.

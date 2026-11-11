@@ -18,16 +18,14 @@ human approves it in the easyi18n dashboard.
 ## Claude Code
 
 ```
-/plugin marketplace add liontude/easyi18n-agents
+/plugin marketplace add easyi18n-com/agents
 /plugin install easyi18n
 ```
 
 The first session after the install downloads the CLI the plugin is pinned
 to, verified against its release's `SHA256SUMS`. An `easyi18n` or
 `dart pub global run easyi18n_cli:easyi18n` of that same version is used
-instead when one is installed. If you installed the plugin while its
-marketplace was named `easyi18n`, see
-[Installed before the rename](claude-code/README.md#installed-before-the-rename).
+instead when one is installed.
 
 The plugin uses the login `easyi18n login` stores: run it once in a
 terminal. For an agent that must not spend without your approval, give the
@@ -45,7 +43,7 @@ takes the key from the environment Claude Code was started in.
   "mcpServers": {
     "easyi18n": {
       "command": "npx",
-      "args": ["-y", "@easyi18n.com/cli@1.2.1", "mcp"],
+      "args": ["-y", "@easyi18n.com/cli@1.2.2", "mcp"],
       "env": { "EASYI18N_TOKEN": "${EASYI18N_TOKEN}" }
     }
   }
@@ -55,7 +53,7 @@ takes the key from the environment Claude Code was started in.
 ## Gemini CLI
 
 ```
-gemini extensions install https://github.com/liontude/easyi18n-agents
+gemini extensions install https://github.com/easyi18n-com/agents
 ```
 
 The extension starts the server with `npx`, so it needs Node.js, and uses
@@ -72,4 +70,4 @@ the same text `easyi18n mcp config --client <client>` prints.
 This repository is a one-way mirror of `integrations/agents/` in the easyi18n
 monorepo. The skills are generated from the MCP server's prompts, and the
 client snippets, `gemini-extension.json` and `server.json` from the CLI, so
-a change made here is overwritten by the next sync. Report issues at https://github.com/liontude/easyi18n-agents/issues.
+a change made here is overwritten by the next sync. Report issues at https://github.com/easyi18n-com/agents/issues.
