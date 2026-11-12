@@ -1,0 +1,17 @@
+{
+  "name": "easyi18n-com",
+  "plugins": [
+    {
+      "name": "easyi18n",
+      "source": {
+        "source": "local",
+        "path": "./codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

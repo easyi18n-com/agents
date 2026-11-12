@@ -1,0 +1,7 @@
+{
+  "name": "easyi18n",
+  "version": "1.3.0",
+  "description": "Set up easyi18n in a Flutter, Xcode, Angular, web or Android project, then translate and publish.",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

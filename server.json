@@ -9,12 +9,12 @@
     "subfolder": "npm"
   },
   "websiteUrl": "https://docs.easyi18n.com/developers/agents",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@easyi18n.com/cli",
-      "version": "1.2.2",
+      "version": "1.3.0",
       "transport": {
         "type": "stdio"
       },

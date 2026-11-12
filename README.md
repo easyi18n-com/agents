@@ -10,6 +10,7 @@ human approves it in the easyi18n dashboard.
 | Directory | What it is |
 |---|---|
 | `claude-code/` | The Claude Code plugin: MCP server, `setup` and `translate` skills, `/easyi18n:doctor` |
+| `codex/` | The Codex plugin: MCP server and canonical `setup` / `translate` skills |
 | `clients/` | The MCP config snippet for every other client (Cursor, VS Code, Codex, Gemini CLI, and more) |
 | `npm/` | `@easyi18n.com/cli`, the CLI as a prebuilt binary, for clients that launch the server with `npx` |
 | `gemini-extension.json` | The Gemini CLI extension: the MCP server, launched with `npx` |
@@ -43,12 +44,28 @@ takes the key from the environment Claude Code was started in.
   "mcpServers": {
     "easyi18n": {
       "command": "npx",
-      "args": ["-y", "@easyi18n.com/cli@1.2.2", "mcp"],
+      "args": ["-y", "@easyi18n.com/cli@1.3.0", "mcp"],
       "env": { "EASYI18N_TOKEN": "${EASYI18N_TOKEN}" }
     }
   }
 }
 ```
+
+## Codex
+
+After the matching CLI release and mirror publication:
+
+```sh
+codex plugin marketplace add easyi18n-com/agents
+codex plugin add easyi18n@easyi18n-com
+```
+
+Start a new session and use `$easyi18n:setup` or `$easyi18n:translate`.
+The plugin needs Node.js and uses your stored `easyi18n login` by default.
+For a local mirror checkout, use its absolute path as the marketplace.
+See the [installation and migration guide](https://docs.easyi18n.com/developers/agents/connect-your-ai#codex-cli)
+for Agent keys, preserved environment settings and existing MCP entries.
+The standalone MCP snippet connects tools only.
 
 ## Gemini CLI
 
